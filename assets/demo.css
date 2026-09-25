@@ -1,0 +1,104 @@
+/* IMSERV concept demo layer over the review prototype styles.
+   Brand: cyan is dominant on dark, big confident type, M-wave signature, line icons.
+   Never cyan text on white: on light surfaces the accent is --imserv-cyan-deepest. */
+
+/* Bigger, tighter type than the review build */
+.display { letter-spacing: -0.02em; font-weight: var(--weight-semibold); }
+h1, .h1, h2, .h2 { letter-spacing: -0.015em; }
+@media (min-width: 1024px) {
+  .display { font-size: 68px; line-height: 70px; }
+  .display--xl { font-size: 84px; line-height: 86px; }
+  h1, .h1 { font-size: 52px; line-height: 56px; }
+  h2, .h2 { font-size: 38px; line-height: 44px; }
+}
+
+/* imserv.com header: floating dark nav pill */
+.imserv-header { position: sticky; top: 0; z-index: 50; padding-block: var(--space-12); pointer-events: none; }
+.imserv-header .container { pointer-events: auto; }
+.imserv-pill { display: flex; align-items: center; gap: var(--space-24); min-height: 64px; padding: var(--space-8) var(--space-8) var(--space-8) var(--space-24); background: rgba(18, 20, 24, 0.92); border: 1px solid var(--imserv-hairline-dark); border-radius: 999px; backdrop-filter: blur(12px); position: relative; }
+.imserv-pill__logo img { height: 22px; width: auto; }
+@media (min-width: 1024px) { .imserv-pill__logo img { height: 26px; } }
+.imserv-pill__nav { list-style: none; margin: 0; padding: 0; display: none; }
+.imserv-pill__nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-12); text-decoration: none; font-size: 15px; }
+.imserv-pill__nav a:hover { color: var(--imserv-cyan); }
+.imserv-pill__actions { margin-left: auto; display: flex; align-items: center; gap: var(--space-8); }
+.imserv-pill__login { display: none; font-size: 15px; text-decoration: none; padding: 0 var(--space-12); }
+.imserv-pill__login:hover { color: var(--imserv-cyan); }
+.imserv-pill__cta { min-height: 44px; border-radius: 999px; padding: 0 var(--space-16); font-size: 15px; }
+.imserv-pill__menu { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--imserv-hairline-dark); background: transparent; color: var(--imserv-white); cursor: pointer; }
+.imserv-pill__menu[aria-expanded="true"] { background: var(--imserv-cyan); color: var(--imserv-black); border-color: var(--imserv-cyan); }
+.js .imserv-pill__nav:not([hidden]) { display: flex; flex-direction: column; position: absolute; top: calc(100% + var(--space-8)); left: 0; right: 0; padding: var(--space-8) var(--space-16); background: #121418; border: 1px solid var(--imserv-hairline-dark); border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,.4); }
+.js .imserv-pill__nav:not([hidden]) a { min-height: 52px; width: 100%; border-bottom: 1px solid var(--imserv-hairline-dark); }
+.js .imserv-pill__nav:not([hidden]) li:last-child a { border-bottom: 0; }
+@media (max-width: 479px) { .imserv-pill__cta { display: none; } }
+@media (min-width: 1024px) {
+  .imserv-pill__menu, .imserv-pill__mobile { display: none; }
+  .imserv-pill__nav, .js .imserv-pill__nav[hidden], .js .imserv-pill__nav:not([hidden]) { display: flex; flex-direction: row; position: static; padding: 0; background: none; border: 0; margin-left: var(--space-24); }
+  .js .imserv-pill__nav:not([hidden]) a { min-height: 44px; width: auto; border: 0; }
+  .imserv-pill__login { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+/* Honest badge instead of the review banner */
+.concept-badge { position: fixed; left: var(--space-16); bottom: var(--space-16); z-index: 60; display: inline-flex; align-items: center; gap: var(--space-8); margin: 0; padding: 6px 14px; border-radius: 999px; background: var(--imserv-black); color: var(--imserv-white); border: 1px solid var(--imserv-hairline-dark); font-size: 12px; line-height: 18px; font-weight: var(--weight-medium); pointer-events: none; }
+.concept-badge__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--imserv-cyan); }
+
+/* Section lockups with the real logos */
+.lockup__pda { height: 34px; width: auto; }
+.lockup__umso { height: 40px; width: auto; filter: invert(1); }
+@media (min-width: 1024px) { .lockup__pda { height: 42px; } .lockup__umso { height: 48px; } }
+.lockup__endorse img { height: 12px; width: auto; display: inline-block; }
+.subnav__list a[aria-current="page"], .subnav__list a.is-section { box-shadow: inset 3px 0 0 var(--imserv-cyan-deepest); }
+@media (min-width: 1024px) { .subnav__list a[aria-current="page"], .subnav__list a.is-section { box-shadow: inset 0 -3px 0 var(--imserv-cyan-deepest); } }
+
+/* Photographic heroes, imserv.com style */
+.hero-photo { position: relative; isolation: isolate; padding-block: var(--space-96) var(--space-64); overflow: hidden; }
+@media (min-width: 1024px) { .hero-photo { padding-block: 160px 128px; min-height: 78vh; display: flex; align-items: center; } }
+.hero-photo { background-color: var(--imserv-black); background-position: center; background-size: cover; background-repeat: no-repeat; }
+.hero-photo::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.62) 55%, rgba(0,0,0,.25) 100%), linear-gradient(0deg, rgba(0,0,0,.7), transparent 45%); }
+.hero-photo--umso { min-height: 0; }
+@media (min-width: 1024px) { .hero-photo--umso { min-height: 64vh; } }
+.hero-rule { width: 96px; height: 3px; border: 0; margin: 0; background: var(--imserv-cyan); }
+
+/* M-wave signature */
+.mwave { position: relative; color: var(--imserv-cyan); height: 56px; opacity: .9; }
+.mwave svg { width: 100%; height: 100%; display: block; }
+.mwave__up, .mwave__down { position: absolute; display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border: 1.5px solid var(--imserv-cyan); border-radius: 50%; background: var(--imserv-black); }
+.mwave__up { left: 24.5%; top: -2px; }
+.mwave__down { left: 74.5%; bottom: -2px; }
+.mwave--hero { margin-top: var(--space-48); }
+.container > .mwave--hero, .section > .mwave--hero { max-width: calc(var(--container-max)); margin-inline: auto; }
+.site-footer .mwave { margin-bottom: var(--space-48); height: 44px; }
+
+/* Proof row: figures in cyan on black */
+.proof .stat__value { color: var(--imserv-cyan); }
+@media (min-width: 1024px) { .proof .stats > div + div { border-left-color: var(--imserv-hairline-dark); } .proof .stat__value { font-size: 56px; line-height: 60px; } }
+.proof .chips li { background: transparent; color: var(--imserv-white); border-color: var(--imserv-hairline-dark); }
+.proof .label { color: var(--imserv-cyan); }
+
+/* Service cards: line icons, cyan-deep on white */
+.svc-icon { color: var(--imserv-cyan-deepest); }
+.card .svc-icon + h3 { margin-top: var(--space-4); }
+.card { transition: border-color var(--duration-quick) var(--ease-standard), transform var(--duration-quick) var(--ease-standard), box-shadow var(--duration-quick) var(--ease-standard); }
+.card:hover { border-color: var(--imserv-black); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+.card > svg:last-child { color: var(--imserv-cyan-deepest); }
+.stat-inline { font-size: 22px; line-height: 28px; font-weight: var(--weight-semibold); color: var(--imserv-cyan-deepest); flex-grow: 0 !important; }
+
+/* Photos */
+.photo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); }
+.card--photo { padding: 0; overflow: hidden; }
+.card--photo img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.card--photo h3, .card--photo p, .card--photo > svg { margin-inline: var(--space-24); }
+.card--photo > svg { margin-bottom: var(--space-24); }
+@media (min-width: 1024px) { .card--photo h3, .card--photo p, .card--photo > svg { margin-inline: var(--space-32); } .card--photo > svg { margin-bottom: var(--space-32); } }
+
+/* Footer */
+.site-footer__top { gap: var(--space-48); }
+.footer-tag { max-width: 14ch; }
+.footer-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-32) var(--space-48); }
+@media (min-width: 768px) { .footer-cols { grid-template-columns: repeat(4, minmax(0, auto)); } }
+.footer-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 36px; text-decoration: none; font-size: 15px; }
+.footer-links a:hover { color: var(--imserv-cyan); }
+
+/* Room for the fixed badge at the page end */
+.site-footer { padding-bottom: 88px; }
